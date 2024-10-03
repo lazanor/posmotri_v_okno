@@ -5,4 +5,4 @@
 ## Основания выполнения работы
 2-ая проектная работа в рамках Яндекс.Практикум
 
-```git clone git@github.com:lazanor/posmotri-v-okno.git```
+```git clone git@github.com:lazanor/posmotri_v_okno.git```
