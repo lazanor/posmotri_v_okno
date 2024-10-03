@@ -8,12 +8,16 @@ html {
   block-size: 100%;
 }
 
+body {
+  scrollbar-width: thin;
+}
+
 .page {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -37,16 +41,250 @@ ol {
   list-style: none;
 }
 
+fieldset {
+  border: none;
+}
+
+.visually-hidden {
+  position: absolute; /* элемент вырывают из потока */
+  width: 1px; /* делают элемент очень маленьким, но таким, чтобы не пропал совсем */
+  height: 1px;
+  margin: -1px; /* элемент убирают из поля зрения, сдвинув на размер самого себя */
+  padding: 0; /* обнуляют отступы, они есть у некоторых элементов по умолчанию */
+  border: 0; /* убирают границу, она тоже может быть у каких-то элементов */
+  clip: rect(
+    0 0 0 0
+  ); /* это свойство обрезает видимую область до нулевого значения */
+  overflow: hidden; /* на всякий случай скрывают видимое за пределами блока */
+}
+
 .content {
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
   gap: 30px;
+  margin-top: 133px;
+  margin-left: 30px;
 }
 
 .result {
   padding-top: 78px;
-  width: 711px;
+  min-width: 711px;
+}
+
+.result__video-container {
+  position: relative;
+  inset: 0;
+  margin-bottom: 16px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+}
+
+.result__video {
+  width: 100%;
 }
 
 .search-form {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 18px;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Стилизация блока поиска */
+.search-form__textfield {
+  margin-top: 5px;
+  background-color: transparent;
+  width: 225px;
+  height: 27px;
+  appearance: none;
+  border-style: none;
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: white;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.search-form__textfield:active {
+  border: none;
+}
+
+.search-form__textfield:hover {
+  cursor: text;
+}
+
+.search-form__textfield:focus {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+/* Конец стилизации блока поиска */
+
+/* Стилизация чекбоксов */
+.search-form__fieldset-title {
+  margin-bottom: 5px;
+}
+
+.search-form__checkbox-list {
+  margin-bottom: 5px;
+}
+
+.search-form__label:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.search-form__checkbox-list .search-form__label:focus {
+  outline: 1px solid white;
+  outline-offset: 1px;
+}
+
+label .search-form__pseudo-checkbox {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid #1b1919;
+  outline: 1px solid white;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span {
+  background-color: white;
+}
+/* Конец стилизации чекбоксов */
+
+/* описываем кнопки */
+.button {
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  border: 1px solid white;
+  height: 34px;
+  margin-bottom: 1px;
+}
+
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050; /* тут через бордер, так как на макете размер кнопки с обводкой и без не отличается*/
+  text-decoration: none;
+}
+
+.button:focus {
+  border: 3px double white;
+  border-radius: 0px;
+  text-decoration: none;
+}
+
+.search-form__submit-button {
+  width: 194px;
+}
+/* закончили описывать кнопки*/
+
+.content__details {
+  width: 399px;
+  height: 100%;
+}
+
+.content__list {
+  position: relative;
+  inset: 0;
+  width: 100%;
+  height: 298px;
+  overflow: hidden scroll;
+  scrollbar-width: none;
+}
+
+.content__list-item:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+  font-size: 75px;
+  text-transform: uppercase;
+  line-height: 70.5px;
+  margin-bottom: 26px;
+}
+
+.content__accent {
+  color: #545050;
+}
+/*
+.content__list-item:active {
+  background-color: #545050;
+}
+
+.content__list-item:focus {
+  border: 1px solid white;
+} 
+*/
+.content__card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Стилизация карточек */
+.content__video-card {
+  display: flex;
+  padding: 2px;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.content__video-card:focus {
+  outline: 1px solid white;
+  text-decoration: none;
+}
+/* Конец стилизации карточек */
+
+.content__video-card-description-container {
+  color: white;
+  width: 200px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.content__video-card-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  line-height: 16.2px;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+}
+
+.more-button {
+  width: 100%;
 }
