@@ -8,13 +8,10 @@ html {
   block-size: 100%;
 }
 
-body {
-  scrollbar-width: thin;
-}
-
 .page {
   inline-size: 1200px;
   block-size: 100%;
+  display: flex;
   margin: auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
@@ -60,11 +57,10 @@ fieldset {
 
 .content {
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: flex-end;
   gap: 30px;
-  margin-top: 133px;
-  margin-left: 30px;
 }
 
 .result {
@@ -232,7 +228,7 @@ input[type="checkbox"]:checked + span {
   font-size: 75px;
   text-transform: uppercase;
   line-height: 70.5px;
-  margin-bottom: 18px;
+  margin-bottom: 26px;
 }
 
 .content__accent {
