@@ -71,7 +71,7 @@ fieldset {
 .result__video-container {
   position: relative;
   inset: 0;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   width: 711px;
   height: 386px;
 }
@@ -79,10 +79,8 @@ fieldset {
 .result__video {
   width: 100%;
   height: 100%;
-}
-
-.result__video {
-  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .search-form {
@@ -91,18 +89,17 @@ fieldset {
   align-items: flex-end;
   font-size: 18px;
   font-family: inherit;
-  height: 54px;
 }
 
 .search-form__fieldset-title {
   font-family: inherit;
   font-size: 18px;
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 /* Стилизация блока поиска */
 .search-form__textfield {
-  margin-top: 5px;
   background-color: transparent;
   width: 225px;
   height: 27px;
@@ -115,6 +112,13 @@ fieldset {
   color: inherit;
   font-size: inherit;
   font-family: inherit;
+}
+
+.search-form__textfield::placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  opacity: 0.7;
 }
 
 .search-form__textfield:active {
@@ -131,30 +135,38 @@ fieldset {
 }
 /* Конец стилизации блока поиска */
 
-/* Стилизация чекбоксов */
-.search-form__fieldset-title {
-  margin-bottom: 5px;
+.search-form__label:has(.search-form__checkbox) {
+  padding: 2px 1px 2px 2px;
 }
+
+.search-form__label-text {
+  margin-right: 5px;
+}
+
+/* Стилизация чекбоксов */
 
 .search-form__checkbox-list {
-  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
-.search-form__label:hover {
+.search-form__checkbox-list .search-form__label:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.search-form__checkbox-list .search-form__label:focus {
+.search-form__label:has(.search-form__checkbox:focus) {
+  outline: none;
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
   outline: 1px solid white;
-  outline-offset: 1px;
 }
 
 label .search-form__pseudo-checkbox {
   display: inline-block;
   width: 18px;
   height: 18px;
-  margin-right: 5px;
   vertical-align: middle;
   background-color: transparent;
   border: 1px solid #1b1919;
@@ -185,11 +197,15 @@ input[type="checkbox"]:checked + span {
 }
 
 .button:active {
-  background-color: #545050; /* тут через бордер, так как на макете размер кнопки с обводкой и без не отличается*/
+  background-color: #545050;
   text-decoration: none;
 }
 
 .button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
   border: 3px double white;
   border-radius: 0px;
   text-decoration: none;
@@ -202,7 +218,6 @@ input[type="checkbox"]:checked + span {
 
 .content__details {
   width: 399px;
-  height: 534px;
 }
 
 .content__list {
@@ -212,11 +227,7 @@ input[type="checkbox"]:checked + span {
   height: 298px;
   overflow: hidden scroll;
   scrollbar-width: none;
-}
-
-.content__list-item {
-  width: 394px;
-  height: 107px;
+  padding: 2px 3px 0px 3px;
 }
 
 .content__list-item:not(:last-of-type) {
@@ -234,24 +245,20 @@ input[type="checkbox"]:checked + span {
 .content__accent {
   color: #545050;
 }
-/*
-.content__list-item:active {
-  background-color: #545050;
-}
 
-.content__list-item:focus {
-  border: 1px solid white;
-} 
-*/
 .content__card-link {
   color: inherit;
   text-decoration: none;
 }
 
+.content__card-link_current .content__video-card {
+  background-color: #545050;
+}
+
 /* Стилизация карточек */
 .content__video-card {
   display: flex;
-  padding: 2px;
+  padding: 0px 0px 2px 2px;
 }
 
 .content__video-card:active {
@@ -265,22 +272,30 @@ input[type="checkbox"]:checked + span {
 }
 
 .content__video-card:focus {
-  outline: 1px solid white;
+  outline: none;
+}
+
+.content__video-card:focus-visible {
+  border: 1px solid white;
+  border-radius: 0px;
   text-decoration: none;
 }
+
 /* Конец стилизации карточек */
 
 .content__video-card-description-container {
   color: white;
   width: 200px;
-  overflow: hidden;
-  overflow-wrap: break-word;
 }
 
 .content__video-card-title {
   font-family: "Oswald", sans-serif;
   font-size: 30px;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px;
 }
 
 .content__video-card-description {
@@ -290,6 +305,8 @@ input[type="checkbox"]:checked + span {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .more-button {
